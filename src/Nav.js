@@ -1,25 +1,32 @@
 import React from 'react';
 import './Nav.css';
+import { gatherImages } from './utility.js'
 
+/**
+ * takes attribute "data" which is the json from LOC search query
+ */
 class Nav extends React.Component {
+  constructor( props ) {
+    super( props );
+    this.onClick = this.onClick.bind( this );
+  }
+
+  onClick(index) {
+    if ( this.props.onClick ) this.props.onClick(index);
+  }
 
   render() {
-    const dataItems = [];
-    let i = 0;
-    for (const index in this.props.data.results) {
-      dataItems.push(<img
-        key={i++}
-        alt={this.props.data.results[index].title}
-        src={this.props.data.results[index].image_url[0]}/>);
-    }
+    if (!this.props.data) { return ( <div className="Nav">Loading...</div> ) };
+    const images = gatherImages(this.props.data.results, this.onClick);
     return (
       <div className="Nav">
         Select An Image
-        {dataItems}
+        <div>
+          {images}
+        </div>
       </div>
     );
   }
 }
-
 
 export default Nav;
