@@ -1,0 +1,33 @@
+.Detail {
+  float: right;
+  width: 70%;
+  height: 100vh;
+}
+
+.Detail h1 {
+  max-height: 5%;
+  font-size: 16px;
+}
+
+.BigImage {
+  max-width: 100%;
+  max-height: 95%;
+}
+
+/* phone */
+@media screen and (min-width: 320px) {
+  .Detail h1 {
+    max-height: 8%;
+    font-size: calc(10px + 6 * ((100vw - 320px) / 680));
+  }
+  .BigImage {
+    max-width: 100%;
+    max-height: 92%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .Detail h1 {
+    font-size: 22px;
+  }
+}

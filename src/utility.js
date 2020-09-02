@@ -39,7 +39,7 @@ function gatherImages(results,onClick) {
     for (let index=0; index<results.length; index++) {
       const img = <img
         key={results[index].title + index}
-        className="Nav-image"
+        className="NavImage"
         alt={results[index].title}
         onClick={onClick ? () => onClick(index) : null}
         src={results[index].image_url[0]}/>;

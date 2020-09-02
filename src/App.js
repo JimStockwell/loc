@@ -21,7 +21,6 @@ class AppBase extends React.Component {
   render() {
     return (
       <div className="App">
-        {/* I plan to use CSS float to arrange Nav to the left */}
         <Nav data={this.props.data ?? ""} onClick={this.handleNavImageClick}/>
         <Detail data={this.props.data ?? null} index={this.state.NavIndex}/>
       </div>

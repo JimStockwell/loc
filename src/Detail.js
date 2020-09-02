@@ -11,9 +11,10 @@ class Detail extends React.Component {
 
   render() {
     return (
-      <section>
+      <section className="Detail">
         <h1>{title(this.props.data,this.props.index)}</h1>
-        <img alt="Big Image"
+        <img className="BigImage"
+             alt="Big Image"
              src={bigImage(this.props.data,this.props.index)}/>
       </section>
     );
