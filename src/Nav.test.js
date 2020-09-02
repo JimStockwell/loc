@@ -26,7 +26,7 @@ describe('Nav component', () => {
   test('Has correct class for styling', () => {
     const { getByAltText } = render(<Nav data={testSearchData3} />);
     const img = getByAltText(/Photo 1/);
-    expect(img).toHaveClass('Nav-image');
+    expect(img).toHaveClass('NavImage');
   });
 
   test('The correct number of images get included', () => {
