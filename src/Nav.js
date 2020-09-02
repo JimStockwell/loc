@@ -3,8 +3,13 @@ import './Nav.css';
 import { gatherImages } from './utility.js'
 
 /**
- * takes attribute "data" which is the json from LOC search query
+ * Displays photographs from LOC photo search query,
+ * and allows a callback when one of them photos is clicked.
+ *
+ * data -  which is the json from LOC search query
+ * onClick - call back for selection made
  */
+
 class Nav extends React.Component {
   constructor( props ) {
     super( props );
@@ -16,7 +21,9 @@ class Nav extends React.Component {
   }
 
   render() {
-    if (!this.props.data) { return ( <div className="Nav">Loading...</div> ) };
+    if ( !this.props.data ) {
+      return ( <div className="Nav">Loading...</div> )
+    };
     const images = gatherImages(this.props.data.results, this.onClick);
     return (
       <div className="Nav">
@@ -28,5 +35,4 @@ class Nav extends React.Component {
     );
   }
 }
-
 export default Nav;

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Detail.css';
-import { title } from './utility.js';
+import { title, bigImage } from './utility.js';
 
 /**
  * props:
@@ -13,7 +13,8 @@ class Detail extends React.Component {
     return (
       <section>
         <h1>{title(this.props.data,this.props.index)}</h1>
-        <img alt="Big Image"/>
+        <img alt="Big Image"
+             src={bigImage(this.props.data,this.props.index)}/>
       </section>
     );
   }

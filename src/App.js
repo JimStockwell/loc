@@ -6,13 +6,24 @@ import Detail    from './Detail.js';
 import withFetch from './withFetch.js';
 
 class AppBase extends React.Component {
-  
+  constructor(props) {
+    super(props);
+    this.handleNavImageClick= this.handleNavImageClick.bind( this );
+    this.state = {NavIndex : null};
+  }
+
+  handleNavImageClick(index) {
+    this.setState(state => ({
+      NavIndex : index
+    }));
+  }
+
   render() {
     return (
       <div className="App">
         {/* I plan to use CSS float to arrange Nav to the left */}
-        <Nav data={this.props.data ?? ""}/>
-        <Detail/>
+        <Nav data={this.props.data ?? ""} onClick={this.handleNavImageClick}/>
+        <Detail data={this.props.data ?? null} index={this.state.NavIndex}/>
       </div>
     );
   }

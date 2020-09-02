@@ -6,9 +6,23 @@ import React from 'react';
  * and the index of interest within the results.
  */
 function title ( data, index ) {
-  /* index can validly be zero, so can't just treat it as boolean */
-  return (data && (typeof index !== 'undefined')) ?
-    data.results[index].title : "";
+  if( typeof index === 'undefined' ) return "";
+  if( index === null ) return "";
+  if( !data ) return "";
+  return data.results[index].title;
+}
+
+/**
+ * Extracts the title of a work from the LOC data,
+ * given the search results
+ * and the index of interest within the results.
+ */
+function bigImage ( data, index ) {
+  if( typeof index === 'undefined' ) return "";
+  if( index === null ) return "";
+  if( !data ) return "";
+  const urlArray = data.results[index].image_url;
+  return urlArray[urlArray.length-1];
 }
 
 /**
@@ -21,9 +35,8 @@ function title ( data, index ) {
  *
  */
 function gatherImages(results,onClick) {
-//    console.log(results);
     const dataItems = [];
-    for (const index in results) {
+    for (let index=0; index<results.length; index++) {
       const img = <img
         key={results[index].title + index}
         className="Nav-image"
@@ -36,4 +49,4 @@ function gatherImages(results,onClick) {
     return dataItems;
 }
 
-export { title, gatherImages };
+export { title, gatherImages, bigImage };

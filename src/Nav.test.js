@@ -37,33 +37,25 @@ describe('Nav component', () => {
   });
 
   test('Selecting photo 1 calls back', done => {
-    // Arrange for the callback
-    function callback(index) {
-      expect(index).toBe("0");
-      done();
-    }
     render(<Nav data={testSearchData3} onClick={callback}/>);
 
-    // Act by clicking the Nav image
     userEvent.click(screen.getByAltText('Photo 1'));
 
-    // Assert...
-    // Well, hopefully our "expect" in the function callback was met.
+    function callback(index) {
+      expect(index).toBe(0);
+      done();
+    }
   });
 
   test('Selecting photo 2 calls back', done => {
-    // Arrange for the callback
-    function callback(index) {
-      expect(index).toBe("1");
-      done();
-    }
     render(<Nav data={testSearchData3} onClick={callback}/>);
 
-    // Act by clicking the Nav image
     userEvent.click(screen.getByAltText('Photo 2'));
 
-    // Assert...
-    // Well, hopefully our "expect" in the function callback was met.
+    function callback(index) {
+      expect(index).toBe(1);
+      done();
+    }
   });
 });
 

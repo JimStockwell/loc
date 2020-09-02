@@ -41,9 +41,6 @@ describe('Detail component', () => {
     expect(img).toBeInTheDocument();
   });
 
-/* TODO: Get this going.
- * But first, make a test for "Nav" where it reacts to a click.
- *
   it('Detail is plumbed in correctly', async () => {
     const promisedData = Promise.resolve(testSearchData3);
     //const promisedData = new Promise((res,rej)=>{res(testSearchData3)});
@@ -56,11 +53,9 @@ describe('Detail component', () => {
     await screen.findByText('Photo 1');
 
     expect(screen.getByText('Photo 1')).toBeInTheDocument();
-    expect(screen.getByText('Photo 2')).not.toBeInTheDocument();
-    expect(screen.getByText('Photo 3')).not.toBeInTheDocument();
+    expect(screen.queryByText('Photo 2')).not.toBeInTheDocument();
+    expect(screen.queryByText('Photo 3')).not.toBeInTheDocument();
   });
- *
- */
 
 });
 
