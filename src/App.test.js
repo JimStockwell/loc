@@ -6,24 +6,12 @@ import userEvent          from '@testing-library/user-event'
 
 describe('Detail component', () => {
 
-  test('Includes the navigation pane', async () => {
-
-    const App = withFetch(AppBase, Promise.resolve(testSearchData3));
-
-    const { getByText } = render(<App />);
-    await screen.findByText('Select An Image');
-
-    const navHeading = getByText('Select An Image');
-    expect(navHeading).toBeInTheDocument();
-
-  });
-
   test('Correctly plumbs in the navigation pane', async () => {
 
     const App = withFetch(AppBase, Promise.resolve(testSearchData3));
 
     render(<App />);
-    await screen.findByText('Select An Image');
+    await screen.findByAltText('Photo 1');
 
     expect(screen.getByAltText('Photo 1')).toBeInTheDocument();
     expect(screen.getByAltText('Photo 2')).toBeInTheDocument();
@@ -31,13 +19,13 @@ describe('Detail component', () => {
 
   });
 
-  it('pulls in the Detail component', () => {
+  it('pulls in the Detail component', async () => {
     const promisedData = new Promise((res,rej)=>{res(testSearchData3)});
     const App = withFetch(AppBase, promisedData);
 
     render(<App />);
 
-    const img = screen.getByAltText(/Big Image/);
+    const img = await screen.findByText(/From The Panel/);
     expect(img).toBeInTheDocument();
   });
 
@@ -48,7 +36,7 @@ describe('Detail component', () => {
 
     // Click and wait for the title to show up
     render(<App />);
-    await screen.findByText('Select An Image');
+    await screen.findByAltText('Photo 1');
     userEvent.click(screen.getByAltText('Photo 1'))
     await screen.findByText('Photo 1');
 

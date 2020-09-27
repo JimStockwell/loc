@@ -27,10 +27,7 @@ class Nav extends React.Component {
     const images = gatherImages(this.props.data.results, this.onClick);
     return (
       <div className="Nav">
-        Select An Image
-        <div>
           {images}
-        </div>
       </div>
     );
   }

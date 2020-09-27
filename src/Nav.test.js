@@ -5,12 +5,6 @@ import Nav                from './Nav';
 
 describe('Nav component', () => {
 
-  test('Renders Select A Photo', () => {
-    const { getByText } = render(<Nav data={testSearchData3} />);
-    const heading = getByText(/select an image/i);
-    /* expect(linkElement).toBeInTheDocument(); */
-  });
-
   test('Gets image Alt names from results.titles', () => {
     const { getByAltText } = render(<Nav data={testSearchData3} />);
     const img = getByAltText(/Photo 1/);
