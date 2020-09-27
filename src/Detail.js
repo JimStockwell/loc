@@ -15,7 +15,8 @@ class Detail extends React.Component {
         <h1>{title(this.props.data,this.props.index)}</h1>
         <img className="BigImage"
              alt="Big Image"
-             src={bigImage(this.props.data,this.props.index)}/>
+             src={bigImage(this.props.data,this.props.index)
+             }/>
       </section>
     );
   }

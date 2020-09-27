@@ -12,6 +12,9 @@ body, html {
     height: 100vh;
     overflow: hidden;
     margin: 0;
+    border-style: solid;
+    display: flex;
+    flex-direction: row;
 }
 .App::after {
   content: "";
