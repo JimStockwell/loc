@@ -3,21 +3,20 @@
 }
 
 body, html {
-  height: 100%;
-  width: 100%;
   margin: 0;
 }
 
 .App {
-    height: 100vh;
-    overflow: hidden;
-    margin: 0;
-    border-style: solid;
+    /* Keeps the big picture from exceeding
+     * the length of the browser window
+     */
+    height: 100vh; 
+
+    /* Causes the big picture
+     * to resize upon shrinking the window,
+     * ratherthan flipping down
+     * to below the navigation bar
+     */
     display: flex;
     flex-direction: row;
-}
-.App::after {
-  content: "";
-  clear: both;
-  display: table;
 }

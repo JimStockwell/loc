@@ -1,41 +1,42 @@
 .Detail {
-  width: 70%;
-  height: 100%;
+  width: 100%;   /* This keeps from crowding out the Nav bar */
 }
 
 .Detail h1 {
-/*  max-height: 5%; */
   font-size: 16px;
+  overflow: scroll;   /* Let's the nav bar scroll independently of the big image */
+  max-height: 10%;    /* This size is what we "overflow: scroll" within */
+  text-align: center; /* Keep the text nicely over the centered image */
 }
 
-.BigImage {
-  max-width: 100%;
-  max-height: 95%;
+.Detail img {
+  max-width: 100%;    /* Keeps us from squishing the Nav bar down to a smaller than planned size */
+  max-height: 90%;    /* Leave room for page header and footer */
+  display: block;     /* Necessary to center the image using margin-left and -right */
+  margin-left: auto;  /* Center the image for good looks */
+  margin-right: auto; /* Center the image for good looks */
 }
 
-/* One important breakpoint is 400px
- * That's where 30% == 120px
- */
- 
-/* This just barely doesn't apply to my iPhone 8 when vertical */
+.Detail p {
+  font-size: 11px;
+  text-align: center; /* Keep the text nicely over the centered image */
+}
+
+/* This just barely doesn't apply to my phone in portrait */
+
 @media screen and (min-width: 415px) {
-/*  .Detail::before {
-    content: "415 min-width";
-  } */
 
-  .Detail {
-    width: 100vw; /* I wonder why this seems to be 100% of area to right of Nav, not 100% of screen. ??? */
-    text-align: center;
-  }
-  .BigImage {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-    max-height: 92%;
+  .Detail img {
+    display:block;      /* So we can center it with margin-left & right */
+    margin-left: auto;  /* Center the image for good looks */
+    margin-right: auto; /* Center the image for good looks */
   }
   .Detail h1 {
-    /* max-height: 8%; */
-    font-size: calc(10px + 6 * ((100vw - 320px) / 680));
+    font-size: 18px;    /* A little bigger for the bigger screen */
+    text-align: center; /* Keep the text nicely over the centered image */
+  }
+  .Detail p {
+    font-size: 9px;
+    text-align: center; /* Keep the text nicely over the centered image */
   }
 }

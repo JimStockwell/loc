@@ -26,7 +26,7 @@ class Detail extends React.Component {
 
     this.setState(state => ({
       loaded: true,
-      sizeMsg: "Load-time Size = " + e.target.height + " high X " + e.target.width + " wide",
+      sizeMsg: "Size at load-time: " + e.target.height + " high X " + e.target.width + " wide",
     }));
   }
 
